@@ -47,7 +47,6 @@ app.get('/api/candidate/:id', (req, res) => {
                LEFT JOIN parties 
                ON candidates.party_id = parties.id 
                WHERE candidates.id = ?`;
-  
   const params = [req.params.id];
 
   db.query(sql, params, (err, row) => {
