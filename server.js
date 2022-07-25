@@ -1,18 +1,14 @@
 const express = require('express');
 const db = require('./db/connection');
 const apiRoutes = require('./routes/apiRoutes');
-const apiRoutes = require('./routes/apiRoutes');
-
-
 
 const PORT = process.env.PORT || 3001;
 const app = express();
 
+////MIDDLEWARE must be added in order to have access to body as a json object/javascript object. It packages it up for request with that data. I allows us to grab it neatly. 
 // Express middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-// Add after Express middleware
-app.use('/api', apiRoutes);
 
 // Use apiRoutes
 app.use('/api', apiRoutes);
@@ -30,3 +26,7 @@ db.connect(err => {
     console.log(`Server running on port ${PORT}`);
   });
 });
+
+ 
+
+
